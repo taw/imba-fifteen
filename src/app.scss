@@ -1,0 +1,32 @@
+@import 'normalize-scss';
+@include normalize();
+
+.App {
+  font-family: 'Luckiest Guy', cursive;
+
+  header {
+    font-size: 64px;
+    text-align: center;
+    margin-top: 16px;
+  }
+  .board {
+    margin: auto;
+    height: 400px;
+    width: 400px;
+    background-color: #a82;
+    position: relative;
+  }
+  .tile {
+    height: 90px;
+    width: 90px;
+    background-color: #da4;
+    text-align: center;
+    line-height: 90px;
+    font-size: 40px;
+    position: absolute;
+  }
+  .tile.active {
+    cursor: pointer;
+    background-color: #fca;
+  }
+}
