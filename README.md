@@ -1,6 +1,6 @@
 # imba-fifteen
 
-Fifteen Puzzle in Imba.
+Fifteen Puzzle in Imba. [You can see in in action here](https://taw.github.io/imba-fifteen).
 
 ## Install dependencies
 
