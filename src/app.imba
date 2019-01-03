@@ -50,11 +50,38 @@ tag App
     @empty = {tx: previous_x, ty: previous_y}
 
   def mount
+    document.add-event-listener("keydown") do |event|
+      handle_key(event)
+      Imba.commit
     setInterval(&,10) do
       for tile in @tiles
         tile:x += clamp(tile:tx - tile:x, -10, 10)
         tile:y += clamp(tile:ty - tile:y, -10, 10)
         Imba.commit
+
+  def handle_key(event)
+    let stx
+    let sty
+    if event:key == "ArrowLeft"
+      stx = @empty:tx + 100
+      sty = @empty:ty
+    else if event:key == "ArrowRight"
+      stx = @empty:tx - 100
+      sty = @empty:ty
+    else if event:key == "ArrowUp"
+      stx = @empty:tx
+      sty = @empty:ty + 100
+    else if event:key == "ArrowDown"
+      stx = @empty:tx
+      sty = @empty:ty - 100
+    else
+      return
+    let tile_to_move = @tiles.find do |tile|
+      tile:tx == stx && tile:ty == sty
+    if tile_to_move
+      tile_clicked(tile_to_move)
+
+    # tile_clicked(tile_to_move)
 
   def render
     <self>
@@ -62,7 +89,9 @@ tag App
         "15 Puzzle"
       <.board>
         for tile in @tiles
-          <.tile css:top=tile:x css:left=tile:y .active=can_be_moved(tile) :tap=(do tile_clicked(tile))>
+          <.tile css:top=tile:y css:left=tile:x .active=can_be_moved(tile) :tap=(do tile_clicked(tile))>
             tile:value
+      <.help>
+        "Click on tiles to move, or use arrow keys."
 
 Imba.mount <App>

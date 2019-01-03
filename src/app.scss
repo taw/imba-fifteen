@@ -3,6 +3,7 @@
 
 .App {
   font-family: 'Luckiest Guy', cursive;
+    text-align: center;
 
   header {
     font-size: 64px;
@@ -28,5 +29,10 @@
   .tile.active {
     cursor: pointer;
     background-color: #fca;
+  }
+  .help {
+    width: 400px;
+    margin: auto;
+    margin-top: 20px;
   }
 }
