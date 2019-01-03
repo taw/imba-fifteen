@@ -403,7 +403,8 @@ template {
   display: none; }
 
 .App {
-  font-family: 'Luckiest Guy', cursive; }
+  font-family: 'Luckiest Guy', cursive;
+  text-align: center; }
   .App header {
     font-size: 64px;
     text-align: center;
@@ -425,3 +426,7 @@ template {
   .App .tile.active {
     cursor: pointer;
     background-color: #fca; }
+  .App .help {
+    width: 400px;
+    margin: auto;
+    margin-top: 20px; }
